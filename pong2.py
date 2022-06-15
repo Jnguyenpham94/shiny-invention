@@ -81,13 +81,19 @@ def paddlebdown():
     right_pad.sety(y)
 
 
+# close window with a button press
+def close():
+    sc.clear()
+    sc.bye()
+
+
 # Keyboard bindings
 sc.listen()
 sc.onkeypress(paddleaup, "w")
 sc.onkeypress(paddleadown, "s")
 sc.onkeypress(paddlebup, "Up")
 sc.onkeypress(paddlebdown, "Down")
-
+sc.onkeypress(close, "q")
 
 while True:
     sc.update()
