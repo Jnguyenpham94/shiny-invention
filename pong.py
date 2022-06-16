@@ -76,12 +76,18 @@ def rightpaddledown():
     rightpaddle.sety(y)
 
 
+def close():
+    window.bye()
+    window.mainloop()
+
+
 # Assign keys to play
 window.listen()
 window.onkeypress(leftpaddleup, 'w')
 window.onkeypress(leftpaddledown, 's')
 window.onkeypress(rightpaddleup, 'Up')
 window.onkeypress(rightpaddledown, 'Down')
+window.onkeypress(close, "q")
 
 while True:
     window.update()

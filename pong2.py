@@ -4,8 +4,8 @@ import turtle
 
 # Create screen
 sc = turtle.Screen()
-sc.title("Pong game")
-sc.bgcolor("white")
+sc.title("Pong test2")
+sc.bgcolor("green")
 sc.setup(width=1000, height=600)
 
 
@@ -83,8 +83,8 @@ def paddlebdown():
 
 # close window with a button press
 def close():
-    sc.clear()
     sc.bye()
+    sc.mainloop()
 
 
 # Keyboard bindings
@@ -136,3 +136,4 @@ while True:
     if (hit_ball.xcor() < -360 and hit_ball.xcor() > -370) and (hit_ball.ycor() < left_pad.ycor()+40 and hit_ball.ycor() > left_pad.ycor()-40):
         hit_ball.setx(-360)
         hit_ball.dx *= -1
+    
