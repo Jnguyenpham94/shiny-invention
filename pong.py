@@ -1,7 +1,6 @@
 import turtle as t
 import os
-playerAscore = 0
-playerBscore = 0
+
 
 # create a window and declare a variable called window and call the screen()
 window = t.Screen()
@@ -28,15 +27,22 @@ rightpaddle.shapesize(stretch_wid=5, stretch_len=1)
 rightpaddle.penup()
 rightpaddle.goto(350, 0)
 
+
 # Code for creating the ball
 ball = t.Turtle()
 ball.speed(0)
 ball.shape("circle")
 ball.color("red")
 ball.penup()
-ball.goto(5, 5)
-ballxdirection = 0.2
-ballydirection = 0.2
+ball.goto(0, 0)
+ball.dx = 0.2
+ball.dy = -0.2
+
+
+# initialize the score
+playerAscore = 0
+playerBscore = 0
+
 
 # Code for creating pen for scorecard update
 pen = t.Turtle()
@@ -52,13 +58,13 @@ pen.write("score", align="center", font=('Arial', 24, 'normal'))
 
 def leftpaddleup():
     y = leftpaddle.ycor()
-    y = y+90
+    y += 20
     leftpaddle.sety(y)
 
 
 def leftpaddledown():
     y = leftpaddle.ycor()
-    y = y+90
+    y += 20
     leftpaddle.sety(y)
 
 # code for moving the rightpaddle
@@ -66,13 +72,13 @@ def leftpaddledown():
 
 def rightpaddleup():
     y = rightpaddle.ycor()
-    y = y+90
+    y += 20
     rightpaddle.sety(y)
 
 
 def rightpaddledown():
     y = rightpaddle.ycor()
-    y = y+90
+    y += 20
     rightpaddle.sety(y)
 
 
@@ -93,33 +99,33 @@ while True:
     window.update()
 
     # moving the ball
-    ball.setx(ball.xcor()+ballxdirection)
-    ball.sety(ball.ycor()+ballxdirection)
+    ball.setx(ball.xcor()+ball.dx)
+    ball.sety(ball.ycor()+ball.dy)
 
     # border set up
     if ball.ycor() > 290:
         ball.sety(290)
-        ballydirection = ballydirection*-1
+        ball.dx *= -1
     if ball.ycor() < -290:
         ball.sety(-290)
-        ballydirection = ballydirection*-1
+        ball.dy *= -1
 
     if ball.xcor() > 390:
         ball.goto(0, 0)
-        ball_dx = ball_dx * -1
-        player_a_score = player_a_score + 1
+        ball.dx *= -1
+        playerAscore += 1
         pen.clear()
         pen.write("Player A: {}                    Player B: {} ".format(
-            player_a_score, player_b_score), align="center", font=('Monaco', 24, "normal"))
+            playerAscore, playerBscore), align="center", font=('Monaco', 24, "normal"))
         os.system("afplay wallhit.wav&")
 
-    if(ball.xcor()) < -390:  # Left width paddle Border
+    if ball.xcor() < -390:  # Left width paddle Border
         ball.goto(0, 0)
-        ball_dx = ball_dx * -1
-        player_b_score = player_b_score + 1
+        ball.dx *= -1
+        playerBscore += 1
         pen.clear()
         pen.write("Player A: {}                    Player B: {} ".format(
-            player_a_score, player_b_score), align="center", font=('Monaco', 24, "normal"))
+            playerAscore, playerBscore), align="center", font=('Monaco', 24, "normal"))
         os.system("afplay wallhit.wav&")
 
      # Handling the collisions with paddles.
