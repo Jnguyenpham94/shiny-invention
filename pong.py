@@ -64,7 +64,7 @@ def leftpaddleup():
 
 def leftpaddledown():
     y = leftpaddle.ycor()
-    y += 20
+    y -= 20
     leftpaddle.sety(y)
 
 # code for moving the rightpaddle
@@ -78,7 +78,7 @@ def rightpaddleup():
 
 def rightpaddledown():
     y = rightpaddle.ycor()
-    y += 20
+    y -= 20
     rightpaddle.sety(y)
 
 
@@ -117,7 +117,7 @@ while True:
         pen.clear()
         pen.write("Player A: {}                    Player B: {} ".format(
             playerAscore, playerBscore), align="center", font=('Monaco', 24, "normal"))
-        os.system("afplay wallhit.wav&")
+        # os.system("afplay wallhit.wav&")
 
     if ball.xcor() < -390:  # Left width paddle Border
         ball.goto(0, 0)
@@ -126,7 +126,7 @@ while True:
         pen.clear()
         pen.write("Player A: {}                    Player B: {} ".format(
             playerAscore, playerBscore), align="center", font=('Monaco', 24, "normal"))
-        os.system("afplay wallhit.wav&")
+        # os.system("afplay wallhit.wav&")
 
      # Handling the collisions with paddles.
     # right-hand side
