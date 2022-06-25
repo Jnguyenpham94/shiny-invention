@@ -4,38 +4,39 @@ import turtle
 from soupsieve import select
 
 
-class Person():
+class Player():
     def __init__(self) -> None:
-        self = turtle.Turtle()
-        self.speed(0)
-        self.shape("square")
-        self.color("red")
-        self.penup()
-        self.goto(0, 0)
+        self.user = turtle.Turtle()
+        self.user.speed(0)
+        self.user.shape("square")
+        self.user.color("red")
+        self.user.penup()
+        self.user.goto(0, 0)
 
+perp = Player()
 
-def moveup(self):
-    y = self.ycor()
+def moveup():
+    y = perp.user.ycor()
     y += 20
-    self.sety(y)
+    perp.user.sety(y)
 
 
-def movedown(self):
-    y = self.ycor()
+def movedown():
+    y = perp.user.ycor()
     y -= 20
-    self.sety(y)
+    perp.user.sety(y)
 
 
-def moveleft(self):
-    x = self.xcor()
+def moveleft():
+    x = perp.user.xcor()
     x -= 20
-    self.setx(x)
+    perp.user.setx(x)
 
 
-def moveright(self):
-    x = self.xcor()
+def moveright():
+    x =perp.user.xcor()
     x += 20
-    self.setx(x)
+    perp.user.setx(x)
 
 
 # close window with a button press
@@ -49,7 +50,7 @@ def newscreen():
     sc.bgcolor("white")
     sc.setup(width=500, height=500)
 
-perp = Person()
+
 sc = turtle.Screen()
 sc.title("One character")
 sc.bgcolor("white")
