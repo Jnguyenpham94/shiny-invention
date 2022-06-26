@@ -1,5 +1,6 @@
 
 import turtle
+from numpy import vectorize
 
 from soupsieve import select
 
@@ -13,7 +14,9 @@ class Player():
         self.user.penup()
         self.user.goto(0, 0)
 
+
 perp = Player()
+
 
 def moveup():
     y = perp.user.ycor()
@@ -34,7 +37,7 @@ def moveleft():
 
 
 def moveright():
-    x =perp.user.xcor()
+    x = perp.user.xcor()
     x += 20
     perp.user.setx(x)
 
@@ -43,6 +46,7 @@ def moveright():
 def close():
     sc.bye()
     sc.mainloop()
+
 
 def newscreen():
     sc = turtle.Screen()
@@ -56,6 +60,12 @@ sc.title("One character")
 sc.bgcolor("white")
 sc.setup(width=500, height=500)
 
+view = turtle.Turtle()
+view.speed(0)
+view.color("red")
+view.penup()
+view.hideturtle()
+view.goto(200, 200)
 
 # Keyboard bindings
 sc.listen()
@@ -71,4 +81,18 @@ sc.onkeypress(close, "q")
 
 while True:
     sc.update()
-    
+    xloc = perp.user.xcor()
+    yloc = perp.user.ycor()
+
+    # TODO: FIND WAY TO NEATLY UPDATE LOCATION
+    view.write("{}, {}".format(xloc, yloc))
+
+    # hit border then...
+    if perp.user.xcor() > 250:
+        perp.user.setx(-250)
+    if perp.user.xcor() < -250:
+        perp.user.setx(250)
+    if perp.user.ycor() > 250:
+        perp.user.sety(-250)
+    if perp.user.ycor() < -250:
+        perp.user.sety(250)
