@@ -20,25 +20,25 @@ perp = Player()
 
 def moveup():
     y = perp.user.ycor()
-    y += 20
+    y += 10
     perp.user.sety(y)
 
 
 def movedown():
     y = perp.user.ycor()
-    y -= 20
+    y -= 10
     perp.user.sety(y)
 
 
 def moveleft():
     x = perp.user.xcor()
-    x -= 20
+    x -= 10
     perp.user.setx(x)
 
 
 def moveright():
     x = perp.user.xcor()
-    x += 20
+    x += 10
     perp.user.setx(x)
 
 
@@ -65,7 +65,7 @@ view.speed(0)
 view.color("red")
 view.penup()
 view.hideturtle()
-view.goto(200, 200)
+view.setposition(170, 200)
 
 # Keyboard bindings
 sc.listen()
@@ -83,9 +83,12 @@ while True:
     sc.update()
     xloc = perp.user.xcor()
     yloc = perp.user.ycor()
+    curx = 0
+    cury = 0
 
-    # TODO: FIND WAY TO NEATLY UPDATE LOCATION
-    view.write("{}, {}".format(xloc, yloc))
+    # TODO: NEED TO POSITION location value somewhere other than center
+    view.undo()
+    view.write("{}".format(perp.user.pos()))
 
     # hit border then...
     if perp.user.xcor() > 250:
