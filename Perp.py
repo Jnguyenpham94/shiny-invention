@@ -1,8 +1,6 @@
+# testing some basic game stuff with turtle
 
 import turtle
-from numpy import vectorize
-
-from soupsieve import select
 
 
 class Player():
@@ -55,6 +53,13 @@ def newscreen():
     sc.setup(width=500, height=500)
 
 
+# prints location of user
+def location():
+    view.undo()
+    view.setpos(160, 220)
+    view.write("{}".format(perp.user.pos()))
+
+
 sc = turtle.Screen()
 sc.title("One character")
 sc.bgcolor("white")
@@ -67,6 +72,12 @@ view.penup()
 view.hideturtle()
 view.setposition(170, 200)
 
+goal = turtle.Turtle()
+goal.color("green")
+view.penup()
+view.goto(200, -80)
+view.setposition(200, -80)
+
 # Keyboard bindings
 sc.listen()
 sc.onkeypress(moveup, "w")
@@ -77,20 +88,13 @@ sc.onkeypress(moveup, "Up")
 sc.onkeypress(movedown, "Down")
 sc.onkeypress(moveleft, "Left")
 sc.onkeypress(moveright, "Right")
+sc.onkeypress(location, "f")
 sc.onkeypress(close, "q")
 
 while True:
     sc.update()
-    xloc = perp.user.xcor()
-    yloc = perp.user.ycor()
-    curx = 0
-    cury = 0
 
-    # TODO: NEED TO POSITION location value somewhere other than center
-    view.undo()
-    view.write("{}".format(perp.user.pos()))
-
-    # hit border then...
+    # hit border then go to opposite side
     if perp.user.xcor() > 250:
         perp.user.setx(-250)
     if perp.user.xcor() < -250:
@@ -99,3 +103,8 @@ while True:
         perp.user.sety(-250)
     if perp.user.ycor() < -250:
         perp.user.sety(250)
+
+    # TODO: goal hit causes crash
+    if perp.user.xcor() == 200 and perp.user.ycor() == -80:
+        view.setposition(125, 125)
+        view.write("GOAL REACHED")
