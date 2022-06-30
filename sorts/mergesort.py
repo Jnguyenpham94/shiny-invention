@@ -53,7 +53,7 @@ def mergeSort(array, left, right):
         merge(array, left, pivot, right)
 
 
-def main():
+def mergemain():
     arr = [12, 11, 13, 5, 6, 7]
     n = len(arr)
     print("Given array is")
@@ -64,7 +64,3 @@ def main():
     print("\n\nSorted array is")
     for i in range(n):
         print("%d" % arr[i], end=" ")
-
-
-if __name__ == "__main__":
-    main()
