@@ -1,13 +1,10 @@
 
 
-def quickmain():
-    arr = [12, 11, 13, 5, 6, 7]
+def quickmain(arr):
     n = len(arr)
-    print("Given array is")
-    for i in range(n):
-        print("%d" % arr[i], end=" ")
 
-    
+    # TODO: algorithm below
+
     print("\n\nSorted array is")
     for i in range(n):
         print("%d" % arr[i], end=" ")

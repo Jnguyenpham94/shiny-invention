@@ -53,8 +53,7 @@ def mergeSort(array, left, right):
         merge(array, left, pivot, right)
 
 
-def mergemain():
-    arr = [12, 11, 13, 5, 6, 7]
+def mergemain(arr):
     n = len(arr)
     print("Given array is")
     for i in range(n):
