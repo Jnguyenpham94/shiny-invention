@@ -59,7 +59,8 @@ def mergemain(arr):
     for i in range(n):
         print("%d" % arr[i], end=" ")
 
+    print("\n\nMerge Sort")
     mergeSort(arr, 0, n-1)
-    print("\n\nSorted array is")
+    print("Sorted array is")
     for i in range(n):
         print("%d" % arr[i], end=" ")

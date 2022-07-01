@@ -26,7 +26,9 @@ def bubblemain(arr):
     result = bubbleascending(array1, n)
     result2 = bubbledescending(array2, n)
 
-    print("\n\nAscending sorted array is")
+    print("\n\nBubble Sort")
+
+    print("Ascending sorted array is")
     print(result)
 
     print("\n\nDescending sorted array is")
