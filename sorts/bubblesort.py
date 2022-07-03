@@ -1,3 +1,4 @@
+# pretty bad sorting overall
 
 def bubbleascending(arr, n):
     for i in range(n):

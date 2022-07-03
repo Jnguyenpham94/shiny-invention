@@ -1,3 +1,4 @@
+# O(logn) overall could be even better than merge sort
 
 def quicksort(arr):
     n = len(arr)

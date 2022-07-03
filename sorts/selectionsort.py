@@ -1,3 +1,4 @@
+# O(n^2) time complexity overall pretty bad for large datasets
 
 def selectionsort(arr):
     size = len(arr)

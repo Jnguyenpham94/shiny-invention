@@ -1,4 +1,4 @@
-# sorting algorithms
+# sorting algorithms O(nlogn) overall pretty great
 
 def merge(array, left, pivot, right):
     n1 = pivot - left + 1
