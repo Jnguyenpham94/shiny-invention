@@ -1,0 +1,29 @@
+
+def insertionSort(arr):
+
+    # Traverse through 1 to len(arr)
+    for i in range(1, len(arr)):
+
+        key = arr[i]
+
+        # Move elements of arr[0..i-1], that are
+        # greater than key, to one position ahead
+        # of their current position
+        j = i-1
+        while j >= 0 and key < arr[j]:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+
+
+def insertionmain(arr):
+    n = len(arr)
+    print("Given array is")
+    for i in range(n):
+        print("%d" % arr[i], end=" ")
+
+    print("\n\nMerge Sort")
+    insertionSort(arr)
+    print("Sorted array is")
+    for i in range(n):
+        print("%d" % arr[i], end=" ")
