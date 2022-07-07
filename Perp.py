@@ -4,10 +4,10 @@ import turtle
 
 
 class Player():
-    def __init__(self) -> None:
+    def __init__(self):
         self.user = turtle.Turtle()
         self.user.speed(0)
-        self.user.shape("square")
+        self.user.shape("classic")
         self.user.color("red")
         self.user.penup()
         self.user.goto(0, 0)
@@ -60,6 +60,20 @@ def location():
     view.write("{}".format(perp.user.pos()))
 
 
+def verticalwall():
+    wall = turtle.Turtle()
+    wall.penup()
+    wall.shape("square")
+    wall.goto(0, 100)
+
+
+def horizontalwall():
+    wall = turtle.Turtle()
+    wall.penup()
+    wall.shape("square")
+    wall.goto(0, 200)
+
+
 sc = turtle.Screen()
 sc.title("One character")
 sc.bgcolor("white")
@@ -90,6 +104,8 @@ sc.onkeypress(moveleft, "Left")
 sc.onkeypress(moveright, "Right")
 sc.onkeypress(location, "f")
 sc.onkeypress(close, "q")
+verticalwall()
+horizontalwall()
 
 while True:
     sc.update()
