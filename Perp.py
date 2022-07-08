@@ -13,9 +13,20 @@ class Player():
         self.user.goto(0, 0)
 
 
-class wall():
+class verticalwall():
     def __init__(self) -> None:
-        pass
+        self.wall = turtle.Turtle()
+        self.wall.penup()
+        self.wall.shape("square")
+        self.wall.shapesize(stretch_wid=6, stretch_len=2)
+
+
+class horizontalwall():
+    def __init__(self) -> None:
+        self.wall = turtle.Turtle()
+        self.wall.penup()
+        self.wall.shape("square")
+        self.wall.shapesize(stretch_wid=2, stretch_len=6)
 
 
 perp = Player()
@@ -65,18 +76,6 @@ def location():
     view.write("{}".format(perp.user.pos()))
 
 
-def verticalwall(self):
-    self = turtle.Turtle()
-    self.penup()
-    self.shape("square")
-
-
-def horizontalwall(self):
-    self = turtle.Turtle()
-    self.penup()
-    self.shape("square")
-
-
 sc = turtle.Screen()
 sc.title("One character")
 sc.bgcolor("white")
@@ -107,10 +106,9 @@ sc.onkeypress(moveleft, "Left")
 sc.onkeypress(moveright, "Right")
 sc.onkeypress(location, "f")
 sc.onkeypress(close, "q")
-verticalwall()
-vert.goto(100, 100)
-hori = horizontalwall()
-hori.goto(150, 150)
+
+vertical = verticalwall()
+horizontal = horizontalwall()
 
 while True:
     sc.update()
