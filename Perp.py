@@ -3,6 +3,7 @@
 import turtle
 
 
+# interactable player
 class Player():
     def __init__(self):
         self.user = turtle.Turtle()
@@ -13,6 +14,7 @@ class Player():
         self.user.goto(0, 0)
 
 
+# vertical walls
 class verticalwall():
     def __init__(self) -> None:
         self.wall = turtle.Turtle()
@@ -21,6 +23,7 @@ class verticalwall():
         self.wall.shapesize(stretch_wid=6, stretch_len=2)
 
 
+# horizontal walls
 class horizontalwall():
     def __init__(self) -> None:
         self.wall = turtle.Turtle()
@@ -61,6 +64,8 @@ def close():
     sc.bye()
     sc.mainloop()
 
+# make a new screen with basic stuff
+
 
 def newscreen():
     sc = turtle.Screen()
@@ -69,7 +74,7 @@ def newscreen():
     sc.setup(width=500, height=500)
 
 
-# prints location of user
+# prints location of user in top-right corner
 def location():
     view.undo()
     view.setpos(160, 220)
@@ -108,8 +113,11 @@ sc.onkeypress(location, "f")
 sc.onkeypress(close, "q")
 
 vertical = verticalwall()
+vertical.wall.setposition(-200, 200)
 horizontal = horizontalwall()
+horizontal.wall.setposition(-160, 150)
 
+# basic event loop for game
 while True:
     sc.update()
 
