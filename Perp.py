@@ -112,10 +112,14 @@ sc.onkeypress(moveright, "Right")
 sc.onkeypress(location, "f")
 sc.onkeypress(close, "q")
 
-vertical = verticalwall()
-vertical.wall.setposition(-200, 200)
-horizontal = horizontalwall()
-horizontal.wall.setposition(-160, 150)
+vertical1 = verticalwall()
+vertical1.wall.setposition(-200, 200)
+vertical2 = verticalwall()
+vertical2.wall.setposition(200, -200)
+horizontal1 = horizontalwall()
+horizontal1.wall.setposition(-160, 150)
+horizontal2 = horizontalwall()
+horizontal2.wall.setposition(160, -150)
 
 # basic event loop for game
 while True:
