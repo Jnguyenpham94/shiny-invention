@@ -64,9 +64,8 @@ def close():
     sc.bye()
     sc.mainloop()
 
+
 # make a new screen with basic stuff
-
-
 def newscreen():
     sc = turtle.Screen()
     sc.title("One character")
@@ -79,6 +78,11 @@ def location():
     view.undo()
     view.setpos(160, 220)
     view.write("{}".format(perp.user.pos()))
+
+
+# what happens when player collides with an object
+def collision():
+    pass
 
 
 sc = turtle.Screen()
@@ -135,7 +139,6 @@ while True:
     if perp.user.ycor() < -250:
         perp.user.sety(250)
 
-    # TODO: goal hit causes crash
-    if perp.user.xcor() == 200 and perp.user.ycor() == -80:
-        view.setposition(125, 125)
-        view.write("GOAL REACHED")
+    # TODO: deal with collision here
+    if perp.user.xcor() == 100 and perp.user.ycor() == -50:
+        view.write(str(perp.user.distance(perp.user.xcor(), perp.user.ycor())))
