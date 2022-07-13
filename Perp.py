@@ -116,14 +116,19 @@ sc.onkeypress(moveright, "Right")
 sc.onkeypress(location, "f")
 sc.onkeypress(close, "q")
 
+# black rectangular borders at edges of screen
 vertical1 = verticalwall()
-vertical1.wall.setposition(-200, 200)
+vertical1.wall.setposition(-240, 0)
+vertical1.wall.shapesize(stretch_len=2, stretch_wid=25)
 vertical2 = verticalwall()
-vertical2.wall.setposition(200, -200)
+vertical2.wall.setposition(240, 0)
+vertical2.wall.shapesize(stretch_len=2, stretch_wid=25)
 horizontal1 = horizontalwall()
-horizontal1.wall.setposition(-160, 150)
+horizontal1.wall.setposition(0, 240)
+horizontal1.wall.shapesize(stretch_len=25, stretch_wid=2)
 horizontal2 = horizontalwall()
-horizontal2.wall.setposition(160, -150)
+horizontal2.wall.setposition(0, -240)
+horizontal2.wall.shapesize(stretch_len=25, stretch_wid=2)
 
 # basic event loop for game
 while True:
@@ -140,5 +145,5 @@ while True:
         perp.user.sety(250)
 
     # TODO: deal with collision here
-    if perp.user.xcor() == 100 and perp.user.ycor() == -50:
-        view.write(str(perp.user.distance(perp.user.xcor(), perp.user.ycor())))
+    if perp.user.xcor() == 160 and perp.user.ycor() == -150:
+        perp.user.setposition(perp.user.xcor() - 30, perp.user.ycor() - 30)
