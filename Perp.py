@@ -76,13 +76,15 @@ def newscreen():
 # prints location of user in top-right corner
 def location():
     view.undo()
-    view.setpos(160, 220)
+    view.setpos(140, 200)
     view.write("{}".format(perp.user.pos()))
 
 
 # what happens when player collides with an object
 def collision():
-    pass
+    # TODO: deal with wall collision here
+    if perp.user.xcor() == 160 and perp.user.ycor() == -150:
+        perp.user.setposition(perp.user.xcor() - 30, perp.user.ycor() - 30)
 
 
 sc = turtle.Screen()
@@ -134,7 +136,7 @@ horizontal2.wall.shapesize(stretch_len=25, stretch_wid=2)
 while True:
     sc.update()
 
-    # hit border then go to opposite side
+    # reach border edge, then go to opposite side
     if perp.user.xcor() > 250:
         perp.user.setx(-250)
     if perp.user.xcor() < -250:
@@ -144,6 +146,4 @@ while True:
     if perp.user.ycor() < -250:
         perp.user.sety(250)
 
-    # TODO: deal with collision here
-    if perp.user.xcor() == 160 and perp.user.ycor() == -150:
-        perp.user.setposition(perp.user.xcor() - 30, perp.user.ycor() - 30)
+    collision()
